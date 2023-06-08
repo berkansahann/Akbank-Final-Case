@@ -1,6 +1,6 @@
 package com.berkansahan.weather.authentication.config;
 
-import com.berkansahan.weather.customer.repository.UserRepository;
+import com.berkansahan.weather.customer.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

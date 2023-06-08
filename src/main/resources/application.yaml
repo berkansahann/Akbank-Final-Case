@@ -5,6 +5,6 @@ spring:
     password: postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 open-weather-map:
   apiKey: 0ba9a6925c0e926718ed3743ec78a3cd

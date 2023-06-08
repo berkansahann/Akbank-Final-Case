@@ -1,7 +1,7 @@
 package com.berkansahan.weather.authentication.security;
 
 
-import com.berkansahan.weather.customer.repository.TokenRepository;
+import com.berkansahan.weather.authentication.entity.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

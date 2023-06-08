@@ -1,6 +1,6 @@
 package com.berkansahan.weather.authentication.security;
 
-import com.berkansahan.weather.customer.repository.TokenRepository;
+import com.berkansahan.weather.authentication.entity.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

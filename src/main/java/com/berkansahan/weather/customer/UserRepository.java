@@ -1,6 +1,6 @@
-package com.berkansahan.weather.customer.repository;
+package com.berkansahan.weather.customer;
 
-import com.berkansahan.weather.customer.entity.User;
+import com.berkansahan.weather.customer.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

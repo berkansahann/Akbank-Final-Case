@@ -1,6 +1,6 @@
-package com.berkansahan.weather.customer.repository;
+package com.berkansahan.weather.authentication.entity;
 
-import com.berkansahan.weather.customer.entity.Token;
+import com.berkansahan.weather.authentication.entity.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,5 +1,6 @@
-package com.berkansahan.weather.customer.entity;
+package com.berkansahan.weather.authentication.entity;
 
+import com.berkansahan.weather.customer.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

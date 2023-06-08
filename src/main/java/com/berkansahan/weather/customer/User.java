@@ -1,5 +1,7 @@
-package com.berkansahan.weather.customer.entity;
+package com.berkansahan.weather.customer;
 
+import com.berkansahan.weather.authentication.entity.Role;
+import com.berkansahan.weather.authentication.entity.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +32,7 @@ public class User implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    private List<String> savedCities;
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
