@@ -21,6 +21,13 @@ public class UserService {
 
     private final WeatherService weatherService;
 
+    /**
+     * Adds a saved city to the user's list of saved cities.
+     *
+     * @param city the city to add
+     * @param id   the user ID
+     * @return the updated list of saved cities
+     */
     public List<String> addSavedCityToUser(String city, Integer id) {
         User user = repository.findById(id).orElseThrow();
         List<String> cities = user.getSavedCities();
@@ -33,6 +40,12 @@ public class UserService {
         return user.getSavedCities();
     }
 
+    /**
+     * Retrieves the weather data for the user's saved cities.
+     *
+     * @param id the user ID
+     * @return a map of city names to weather data
+     */
     public Map<String, WeatherDataResponse> getSavedCitiesWeatherData(Integer id) {
         User user = repository.findById(id).orElseThrow();
         List<String> cities = user.getSavedCities();

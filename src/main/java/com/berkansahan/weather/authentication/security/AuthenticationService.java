@@ -15,6 +15,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author berkansahan
+ * Authentication service that handles user registration and login.
+ */
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -25,6 +29,12 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
+    /**
+     * Registers a new user and generates a JWT token for authentication.
+     *
+     * @param request the register request containing user information
+     * @return the login response containing authentication details
+     */
     public LoginResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstName(request.getFirstName())
@@ -42,6 +52,12 @@ public class AuthenticationService {
                 .build();
     }
 
+    /**
+     * Authenticates a user and generates a new JWT token.
+     *
+     * @param request the login request containing user credentials
+     * @return the login response containing authentication details
+     */
     public LoginResponse login(LoginRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -60,6 +76,12 @@ public class AuthenticationService {
                 .build();
     }
 
+    /**
+     * Saves the user token in the database.
+     *
+     * @param user     the user entity
+     * @param jwtToken the JWT token to be saved
+     */
     private void saveUserToken(User user, String jwtToken) {
         var token = Token.builder()
                 .user(user)
@@ -71,6 +93,11 @@ public class AuthenticationService {
         tokenRepository.save(token);
     }
 
+    /**
+     * Revokes all existing valid tokens for the user.
+     *
+     * @param user the user entity
+     */
     private void revokeAllUserTokens(User user) {
         var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
         if (validUserTokens.isEmpty())

@@ -20,6 +20,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
+/**
+ * @author berkansahan
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -29,6 +32,10 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
 
+    /**
+     * Bean for SecurityFilterChain.
+     * Configures the security filters and their order.
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -55,6 +62,11 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+    /**
+     * Bean for WebMvcConfigurer.
+     * Configures global CORS settings for the application.
+     */
     public WebMvcConfigurer webMvcConfigurer() {
         return new WebMvcConfigurer() {
             @Override
@@ -64,6 +76,10 @@ public class SecurityConfig {
             }
         };
     }
+
+    /**
+     * CorsConfigurationSource for configuring CORS settings.
+     */
     private CorsConfigurationSource corsConfigurationSource() {
         final var configuration = new CorsConfiguration();
 

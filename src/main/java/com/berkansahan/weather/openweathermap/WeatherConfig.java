@@ -13,6 +13,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "open-weather-map")
 public class WeatherConfig {
-
+    //Gets key from application.yaml file.
     private String apiKey;
 }
