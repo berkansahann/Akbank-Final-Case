@@ -1,6 +1,5 @@
 package com.berkansahan.weather.customer;
 
-import com.berkansahan.weather.customer.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

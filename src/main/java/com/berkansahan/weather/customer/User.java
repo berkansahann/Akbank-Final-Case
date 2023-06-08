@@ -1,6 +1,5 @@
 package com.berkansahan.weather.customer;
 
-import com.berkansahan.weather.authentication.entity.Role;
 import com.berkansahan.weather.authentication.entity.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,7 +30,7 @@ public class User implements UserDetails {
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private UserRole userRole;
     private List<String> savedCities;
 
     @OneToMany(mappedBy = "user")
@@ -39,7 +38,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(userRole.name()));
     }
 
     @Override

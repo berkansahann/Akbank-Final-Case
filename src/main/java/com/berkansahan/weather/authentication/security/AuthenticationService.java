@@ -3,7 +3,7 @@ package com.berkansahan.weather.authentication.security;
 import com.berkansahan.weather.authentication.dto.LoginRequest;
 import com.berkansahan.weather.authentication.dto.LoginResponse;
 import com.berkansahan.weather.authentication.dto.RegisterRequest;
-import com.berkansahan.weather.authentication.entity.Role;
+import com.berkansahan.weather.customer.UserRole;
 import com.berkansahan.weather.authentication.entity.Token;
 import com.berkansahan.weather.authentication.entity.TokenType;
 import com.berkansahan.weather.customer.User;
@@ -31,7 +31,7 @@ public class AuthenticationService {
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(Role.ROLE_USER)
+                .userRole(UserRole.ROLE_USER)
                 .build();
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);

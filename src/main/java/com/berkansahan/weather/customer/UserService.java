@@ -1,7 +1,5 @@
 package com.berkansahan.weather.customer;
 
-import com.berkansahan.weather.customer.User;
-import com.berkansahan.weather.customer.UserRepository;
 import com.berkansahan.weather.openweathermap.WeatherDataResponse;
 import com.berkansahan.weather.openweathermap.WeatherService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +21,7 @@ public class UserService {
 
     private final WeatherService weatherService;
 
-    public User addSavedCityToUser(String city, Integer id) {
+    public List<String> addSavedCityToUser(String city, Integer id) {
         User user = repository.findById(id).orElseThrow();
         List<String> cities = user.getSavedCities();
         if (cities == null) {
@@ -32,7 +30,7 @@ public class UserService {
         cities.add(city);
         user.setSavedCities(cities);
         repository.save(user);
-        return user;
+        return user.getSavedCities();
     }
 
     public Map<String, WeatherDataResponse> getSavedCitiesWeatherData(Integer id) {
