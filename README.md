@@ -13,6 +13,7 @@ of 5 days. The application will retrieve weather forecasts using the OpenWeather
 - Spring Boot
 - RESTful Web Services
 - OpenWeatherMap API
+- PostgreSQL
 
 ## Project Installation
 
@@ -20,6 +21,7 @@ of 5 days. The application will retrieve weather forecasts using the OpenWeather
 2. Open the project on IDE.
 3. Install the necessary dependencies from `pom.xml`.
 4. Add a database connection and necessary dependencies in `pom.xml`.
+    - If you want the create PostgreSQL on docker. There is a `docker-compose.yaml` for this.
 5. Set up the OpenWeatherMap API key:
     1. Visit the OpenWeatherMap website: https://openweathermap.org/
     2. Sign up or log in to your account.
